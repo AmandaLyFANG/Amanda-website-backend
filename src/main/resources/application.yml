@@ -1,0 +1,32 @@
+logging:
+  level:
+    org.springframework.data:
+      jpa: DEBUG
+app:
+  name: "Amanda's website"
+welcome:
+  message: "Welcome message from property file Changed! Welcome to ${app.name}"
+basic:
+  value: true
+  message: "Welcome to Amanda's website"
+  number: 200
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        generate_statistics: true
+        format_sql: true
+        show-sql: true
+        use_sql_comments: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/website
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: default
