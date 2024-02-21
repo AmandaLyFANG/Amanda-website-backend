@@ -61,6 +61,7 @@ public class ArticleTagServiceImpl implements ArticleTagService {
 
     @Override
     public void createArticle(ArticleDTO articleDTO) {
+        articleDTO.setIsDelete(Boolean.FALSE);
         articleRepository.save(new Article(articleDTO));
     }
 
@@ -102,5 +103,18 @@ public class ArticleTagServiceImpl implements ArticleTagService {
             JpaUtil.copyNotNullProperties(tagDTO, tag);
             tagRepository.save(tag);
         }
+    }
+
+    @Override
+    public ArticleDTO getArticleById(Integer articleId) {
+        Article article = new Article();
+        article.setArticleId(articleId);
+        article.setIsDelete(Boolean.FALSE);
+        Article articleById = articleRepository.findOne(Example.of(article)).get();
+        ArticleDTO articleDTO = new ArticleDTO(articleById);
+        List<Tag> tagsByArticleId = tagRepository.findTagsByArticleId(articleId);
+        List<TagDTO> tagDTOS = tagsByArticleId.stream().map(item -> new TagDTO(item)).toList();
+        articleDTO.setTagDTOList(tagDTOS);
+        return articleDTO;
     }
 }

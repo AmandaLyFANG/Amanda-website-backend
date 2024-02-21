@@ -28,4 +28,6 @@ public interface ArticleTagService {
     void updateArticleById(ArticleDTO articleDTO);
     //update tag by id
     void updateTagById(TagDTO tagDTO);
+
+    ArticleDTO getArticleById(Integer articleId);
 }

@@ -25,6 +25,11 @@ public class ArticleTagController {
         return ResponseEntity.ok(articleTagService.getArticles(page));
     }
 
+    @GetMapping("/articles/{articleId}")
+    public ResponseEntity<ArticleDTO> getArticleById(@PathVariable Integer articleId){
+        return ResponseEntity.ok(articleTagService.getArticleById(articleId));
+    }
+
     //return all tag, filter deleted tags
     @GetMapping("/tags")
     public ResponseEntity<List<TagDTO>> getTags(){

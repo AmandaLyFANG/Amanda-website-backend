@@ -11,6 +11,13 @@ basic:
   message: "Welcome to Amanda's website"
   number: 200
 
+#cors:
+#  allowed-origins: "/*"
+#  allowed-methods: "GET, POST, PUT, DELETE"
+#  allowed-headers: "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers"
+#  allow-credentials: true
+#  max-age: 1800
+
 spring:
   jpa:
     show-sql: true
