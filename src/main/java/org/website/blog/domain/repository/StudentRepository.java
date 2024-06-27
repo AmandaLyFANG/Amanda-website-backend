@@ -1,6 +1,5 @@
 package org.website.blog.domain.repository;
 
-import org.apache.ibatis.annotations.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.website.blog.domain.entity.Student;
